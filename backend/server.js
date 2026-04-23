@@ -4,7 +4,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const DATA_DIR = path.join(__dirname, 'data');
 const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
@@ -195,6 +195,13 @@ app.post('/api/instagram-campaign/send', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+// Serve built React frontend in production
+const distPath = path.join(__dirname, '..', 'dist');
+app.use(express.static(distPath));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
 });
 
 ensureDataDir().then(() => {

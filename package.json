@@ -12,7 +12,7 @@
     "server": "node backend/server.js",
     "electron-start": "electron .",
     "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
-    "start": "concurrently \"npm run server\" \"npm run electron-dev\"",
+    "start": "node backend/server.js",
     "dogrula": "node dogrula.js"
   },
   "dependencies": {
