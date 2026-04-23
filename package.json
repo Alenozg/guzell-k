@@ -36,7 +36,7 @@
   "author": "busseozgenoglu-cyber",
   "license": "ISC",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "browserslist": {
     "production": [">0.2%", "not dead", "not op_mini all"],
